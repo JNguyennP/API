@@ -30,7 +30,7 @@ async function fetchFruitData(fruit){
     }
 }
 
-function addfruit(fruit, fruitImg){
+function addFruit(fruit, fruitImg){
     const img = document.createElement('img');
     img.classList.add('fruits');
     img.alt = fruit.name;
@@ -43,10 +43,16 @@ function addfruit(fruit, fruitImg){
 
     cal += fruit.nutritions.calories;
     fruitNutrition.textContent = 'Total Calories: ' + cal;
-    
+
 
 }
 
 function removeFruit(e){
+    const fruitName = e.target.alt;
+    cal -= fruitCal[fruitName];
+    fruitNutrition.textContent = 'Total Calories: ' + cal;
+
+    delete fruitCal[fruitName];
+    e.target.remove();
 
 }
